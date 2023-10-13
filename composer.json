@@ -1,0 +1,19 @@
+{
+    "name": "racinee/php-gestion-biblio",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\Tests\\" : "tests/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.4"
+    },
+    "require": {
+        "symfony/var-dumper": "^6.3"
+    }
+}

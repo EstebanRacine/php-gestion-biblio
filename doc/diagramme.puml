@@ -1,0 +1,60 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class Media{
+    - string titre
+    - string dureeEmprunt
+    + abstract getInformations()
+}
+
+class Livre{
+- string isbn
+- string auteur
+- int nbPage
++ getInformations()
+}
+
+class Magazine{
+- int numero
+- date datePublication
++ getInformations()
+}
+
+class BluRay{
+- string realisateur
+- int annee
+- int duree
++ getInformations()
+}
+
+class Adherent{
+- string numAdherent
+- string prenom
+- string nom
+- string email
+- date dateAdhesion
++ __contruct()
++ genererNumero()
++ renouvelerAdhesion()
++ getInformations()
++ adhesionEstValable()
+}
+
+class Emprunt{
+- date dateEmprunt
+- date dateRetourEstimee
+- date dateRetour
++ getInformations()
++ empruntEnCours()
++ empruntEnAlerte()
++ dureeMaxDepassee()
+}
+
+Media <|-- Livre
+Media <|-- Magazine
+Media <|-- BluRay
+
+Emprunt "0..* "--> "1..1 " Media
+Adherent "1..1 "<--"0..* " Emprunt
+
+@enduml
